@@ -15,9 +15,9 @@ Windows时间格式的查看需要看你电脑屏幕右下角的显示格式
 [![.bat位置示例](https://img1.imgtp.com/2023/06/22/dKIchuTo.png "Location example")]  
 运行.bat  
 输入相关信息  
-会自动按照你输入的信息生成md5码并保存为xxxx/xx/xx的文件  
+会自动按照你输入的信息生成md5码并保存为xxxx-xx-xx的文件  
 然后  
-git add xxxx/xx/xx  
+git add xxxx-xx-xx  
 git commit -m "<日期>pw<密码>"  
 git push origin  
 # WindowsVer目前问题  
