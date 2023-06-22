@@ -1,9 +1,9 @@
 # 方便了？好像也没怎么方便
 武大2023网安创客快速签到  
-WindowsVerA适用于Windows系统且时间格式为2023/06/21  
-WindowsVerB适用于Windows系统且时间格式为21/06/2023  
-MacOSVer使用于MacOS  
-时间格式的查看只需要看你Windows右下角的显示格式  
+WindowsVerA适用于Windows系统且时间格式为2023/06/21这种  
+WindowsVerB适用于Windows系统且时间格式为21/06/2023这种  
+MacOSVer适用于MacOS  
+Windows时间格式的查看需要看你电脑屏幕右下角的显示格式  
 
 使用之前必须配置过git的origin变量  
 
