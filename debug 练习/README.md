@@ -4,4 +4,5 @@
  GrayJimars 添加 矩阵螺旋输出.c  
  GrayJimars 添加 最大质因数.c  
  GrayJimars 添加 奇怪的规则.c  
+ GrayJimars 添加 相差的天数.c  
  
