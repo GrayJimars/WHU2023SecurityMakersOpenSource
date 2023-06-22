@@ -5,7 +5,7 @@ char s[maxn];
 int main() {
     scanf("%s", s);
     int len = strlen(s);
-    for (int i = 0; i < len; i++) {
+    for (int i = 0; i < len - 2; i++) {
         int x;
         if (s[i] - 'j' >= 0) {
             x = s[i]-'j';
