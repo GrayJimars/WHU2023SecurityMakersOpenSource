@@ -19,10 +19,13 @@ for /f %%a in ('CertUtil -hashfile "%tempfilename%" MD5 ^| find /v ":" ^| findst
 if defined md5 (
     echo|set /p="%md5%" > "%outputfile%"
     echo MD5 value has been written to "%outputfile%".
+    %git命令从这里开始%
     git add %outputfile%
     git commit -m "%Date:~6,4%%Date:~3,2%%Date:~0,2%pw%Password%"
+    %下方的命令是让程序歇1s，用来防止指令执行太快%
     timeout /T 1 /NOBREAK
     git push origin
+    %git命令在这里结束%
 ) else (
     echo Failed to calculate MD5 value.
 )

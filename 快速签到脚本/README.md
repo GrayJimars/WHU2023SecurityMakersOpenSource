@@ -19,12 +19,11 @@ Windows时间格式的查看需要看你电脑屏幕右下角的显示格式
 然后  
 git add xxxx/xx/xx  
 git commit -m "<日期>pw<密码>"  
-git pull  
 git push origin  
 # WindowsVer目前问题  
 签到时由于每个人git配置、系统环境的不同可能失败  
 总之先检查信息有没有输入正确  
 然后检查一下你右下角的系统日期是不是之前提到的格式  
-最后看看你自己之前签到是不是用的先git add然后commit然后pull然后push origin  
+最后看看你自己之前签到是不是用的先git add，然后commit，等待1s，然后push origin  
 如果你之前不是这样子签到的，可以用文本编辑器自己改一下.bat文件  
 把从22行开始的几行git命令改成你自己用的就好  
