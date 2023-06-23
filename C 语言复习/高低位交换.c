@@ -14,7 +14,7 @@ void transfer(long long number,char* target) {
 int main() {
 	long long number;
 	scanf("%lld",&number);
-	char target[33];
+	char target[33];S
 	target[32]='\0';
 	for(int i=0; i<32; i++)target[i]='0';
 	transfer(number,target);
