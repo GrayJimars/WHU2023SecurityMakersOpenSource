@@ -4,15 +4,8 @@
 int degree[MAXV], t, adjgraph[MAXV][MAXV + 2];
 
 void Initialize(int degree[], int adjgraph[MAXV][MAXV + 2], int n) {
-    for (int i = 1; i <= n; i++) {
-        degree[i] = 0;
-    }
-    for (int i = 1; i <= n; i++) {
-        for (int j = 0; j < adjgraph[i][MAXV]; j++) {
-            adjgraph[i][j] = 0;
-        }
-        adjgraph[i][MAXV] = adjgraph[i][MAXV + 1] = 0;
-    }
+    memset(degree, 0, MAXV * sizeof(int));
+    memset(adjgraph, 0, MAXV * (MAXV + 2) * sizeof(int));
 }
 
 int main() {
