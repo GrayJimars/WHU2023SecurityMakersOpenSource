@@ -1,21 +1,13 @@
 #include<stdio.h>
-#include<string.h>
-#define MAXSIZE 1010
 int main() {
-	char str[MAXSIZE]= {0};
-	gets(str);
-	char ch;
-	int j=0;
+	char str[1010];
+	scanf("%s", str);
+	int j = 0;
 	while(str[j]) {
-		ch=str[j];
-		if(ch >= 'a' && ch < 'z' || ch >= 'A' && ch < 'Z') {
-			str[j]++;
-		}
-		if(ch=='z' || ch=='Z') {
-			str[j]-=25;
-		}
+        str[j] = str[j] >= 'A' && str[j] <= 'Z' ? (str[j] - 'A' + 1) % 26 + 'A' : str[j];
+        str[j] = str[j] >= 'a' && str[j] <= 'z' ? (str[j] - 'a' + 1) % 26 + 'a' : str[j];
 		j++;
 	}
-	printf("%s",str);
-
+	puts(str);
+    return 0;
 }
