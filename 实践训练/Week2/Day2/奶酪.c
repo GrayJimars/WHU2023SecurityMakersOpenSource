@@ -61,18 +61,13 @@ int main() {
     long long T, n, h, r;
     scanf("%lld", &T);
     while (T--) {
-        //定义洞数组
-        ElemType hole[5010];
-        //创建队列
-        Queue* q = (Queue*)malloc(sizeof(Queue));
+        ElemType hole[5010];//定义洞数组
+        Queue* q = (Queue*)malloc(sizeof(Queue));//创建队列
         q->front = q->rear = -1;
         scanf("%lld %lld %lld", &n, &h, &r);//接受n，h，r
-        //开始获取所有洞的信息
-        getHoles(q, hole, n, r);
-        //开始广搜
-        printf("%d\n", bfs(q, hole, n, h, r));
-        //释放队列
-        free(q);
+        getHoles(q, hole, n, r);//开始获取所有洞的信息
+        printf("%d\n", bfs(q, hole, n, h, r));//开始广搜
+        free(q);//释放队列
     }
     return 0;
 }
