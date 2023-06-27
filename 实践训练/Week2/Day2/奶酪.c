@@ -12,20 +12,6 @@ typedef struct {
     ElemType queue[QueueLength];
     int front, rear;
 }Queue;
-//入队
-void enQueue(Queue *q, ElemType e) {
-    q->rear = (q->rear + 1) % QueueLength;
-    q->queue[q->rear] = e;
-}
-//出队
-void deQueue(Queue* q, ElemType *e) {
-    q->front = (q->front + 1) % QueueLength;
-    *e = q->queue[q->front];
-}
-//判断队空
-int qEmpty(Queue* q) {
-    return q->front == q->rear;
-}
 //判断是否到达终点
 int isEnd(ElemType now, long long h, long long r) {
     return now.z >= h - r;
