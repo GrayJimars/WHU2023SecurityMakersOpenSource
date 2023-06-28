@@ -6,16 +6,16 @@
 const int infinite = 0x3f3f3f3f;
 
 typedef struct{
-    int goal, length, next_arc;
+    int goal, length, next_edge;
 }edge;
 edge edge_list[maxm * 2];
 
-int first_arc[maxn], edge_id = 0, start = 1, n, m, distance[maxn], visit[maxn];
+int first_edge[maxn], edge_id = 0, start = 1, n, m, distance[maxn], visit[maxn];
 
 void insert(int from, int to, int length) {
-    edge new_edge = { to, length, first_arc[from] };
+    edge new_edge = { to, length, first_edge[from] };
     edge_list[edge_id] = new_edge;
-    first_arc[from] = edge_id++;
+    first_edge[from] = edge_id++;
 }
 void insert2(int from, int to, int length) {
     insert(from, to, length);
@@ -24,7 +24,7 @@ void insert2(int from, int to, int length) {
 
 int main() {
     scanf("%d%d", &n, &m);
-    memset(first_arc, -1, sizeof(first_arc));
+    memset(first_edge, -1, sizeof(first_edge));
     for (int i = 0; i < m; i++) {
         int from, to, length;
         scanf("%d%d%d", &from, &to, &length);
@@ -45,7 +45,7 @@ int main() {
             break;
         }
         visit[closest_node] = 1;
-        for (int j = first_arc[closest_node]; j != -1; j = edge_list[j].next_arc) {
+        for (int j = first_edge[closest_node]; j != -1; j = edge_list[j].next_edge) {
             int v = edge_list[j].goal;
             distance[v] = min(distance[v], distance[closest_node] + edge_list[j].length);
         }
