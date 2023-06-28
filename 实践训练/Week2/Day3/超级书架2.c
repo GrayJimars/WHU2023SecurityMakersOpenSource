@@ -1,17 +1,33 @@
 #include<stdio.h>
-long long ans = 10000000000000;
-void dfs(int N, int H[], long long S, int B, int k){
-    if(S >= B){
-        if(S < ans){
-            ans = S;
+long long min = 10000000000000;
+
+void dfs(int cownumber
+, int cowheights[]
+, long long nowheight
+, int bookshelfheight
+, int nownumber){
+
+    if(nowheight >= bookshelfheight){
+        if(nowheight < min){
+            min = nowheight;
         }
         return;
     }
-    if(k > N){
+    if(nownumber > cownumber){
         return;
     }
-    dfs(N, H, S + H[k], B, k + 1);
-    dfs(N, H, S, B, k + 1);
+
+    dfs(cownumber
+    , cowheights
+    , nowheight + cowheights[nownumber]
+    , bookshelfheight
+    , nownumber + 1);
+    
+    dfs(cownumber
+    , cowheights
+    , nowheight
+    , bookshelfheight
+    , nownumber + 1);
 }
 
 int main(){
@@ -21,6 +37,6 @@ int main(){
         scanf("%d", &H[i]);
     }
     dfs(N, H, 0, B, 1);
-    printf("%lld", ans - B);
+    printf("%lld", min - B);
     return 0;
 }
