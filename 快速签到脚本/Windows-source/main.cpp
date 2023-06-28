@@ -1,5 +1,5 @@
 #include "defines.h"
-
+ 
 int main() {
 	char password[7];
 	user u;

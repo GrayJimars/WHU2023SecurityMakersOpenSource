@@ -1,5 +1,5 @@
 #include "defines.h"
-
+ 
 void init(char* Classroom, char* Branch) {
 	char command[256];
 	printf("即将开始初始化本地git\n");
