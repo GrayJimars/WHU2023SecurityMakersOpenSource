@@ -13,6 +13,7 @@ void dfs(int cownumber
         }
         return;
     }
+    
     if(nownumber > cownumber){
         return;
     }
@@ -22,7 +23,7 @@ void dfs(int cownumber
     , nowheight + cowheights[nownumber]
     , bookshelfheight
     , nownumber + 1);
-    
+
     dfs(cownumber
     , cowheights
     , nowheight
