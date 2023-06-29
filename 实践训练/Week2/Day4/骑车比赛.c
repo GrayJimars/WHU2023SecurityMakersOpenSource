@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #define maxn 1010
-#define maxm 5010
+#define maxm 10010
 #define min(a,b) (((a)<(b))?(a):(b))
 const int infinite = 0x3f3f3f3f;
 
