@@ -1,5 +1,5 @@
 #include "defines.h"
- 
+
 //限长输入（数字）
 void Input(char str[], int mustlen)
 {

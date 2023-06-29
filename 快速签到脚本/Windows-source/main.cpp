@@ -1,5 +1,5 @@
 #include "defines.h"
- 
+
 int main() {
 	char password[7];
 	user u;
@@ -14,5 +14,8 @@ int main() {
 
 	printf("密码设置完成，开始生成md5文件\n");
 	md5sum_push(u, password);
+	printf("签到成功！建议去网站中检查一下，如果失败请反馈\n");
+	printf("按回车退出\n");
+	getchar();
 	return 0;
 }

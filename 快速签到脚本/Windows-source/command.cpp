@@ -1,5 +1,5 @@
 #include "defines.h"
- 
+
 void init(char* Classroom, char* Branch) {
 	char command[256];
 	printf("即将开始初始化本地git\n");
@@ -35,8 +35,7 @@ void init(char* Classroom, char* Branch) {
 }
 
 void md5sum_push(user u, char* password) {
-	char outputfile[32] = { 0 }, code[32], command[512];
-
+	char outputfile[32] = { 0 }, code[32], command[512], t[2] = {'%', '\0'};
 	time_t current_time;
 	time(&current_time);
 	struct tm* format_time;
@@ -50,22 +49,13 @@ void md5sum_push(user u, char* password) {
 	strcpy(code, u.Identity);
 	strcat(code, password);
 	strcat(code, u.Classroom);
+	char tempfile[32];
+	strcpy(tempfile, u.Classroom);
+	strcat(tempfile, "\\temp.txt");
 	FILE* fp;
-	fp = fopen("temp.txt", "w");
+	fp = fopen(tempfile, "w");
 	fprintf(fp, code);
-	fclose;
-
-	strcpy(command, "cd ");
-	strcat(command, u.Classroom);
-	strcat(command, " && ");
-	strcat(command, "FOR /F %%a IN ('CertUtil -hashfile temp.txt MD5 ^| find /v \":\" ^| findstr /r \" ^ [0 - 9a - fA - F] * $\"') DO ( echo|set /p=%%a > ");
-	strcat(command, outputfile);
-	strcat(command, " )");
-
-	system(command);
-	printf("MD5值已经被写入%s\n", outputfile);
-
-	printf("即将开始进行推送\n");
+	fclose(fp);
 
 	strcpy(command, "cd ");
 	strcat(command, u.Classroom);
@@ -86,6 +76,30 @@ void md5sum_push(user u, char* password) {
 
 	system(command);
 	printf("同步远端%s分支\n", u.Branch);
+
+	strcpy(command, "cd ");
+	strcat(command, u.Classroom);
+	strcat(command, " && ");
+	strcat(command, "FOR /F ");
+	strcat(command, t);
+	strcat(command, "a IN ('CertUtil -hashfile temp.txt MD5 ^| find /v \":\" ^| findstr /r \"^[0-9a-fA-F]*$\"') DO ( echo|set /p=");
+	strcat(command, t);
+	strcat(command, "a > ");
+	strcat(command, outputfile);
+	strcat(command, " )");
+
+	system(command);
+	printf("MD5值已经被写入%s\n", outputfile);
+
+	strcpy(command, "cd ");
+	strcat(command, u.Classroom);
+	strcat(command, " && ");
+	strcat(command, "del ");
+	strcat(command, "temp.txt");
+	system(command);//删除temp.txt
+
+
+	printf("即将开始进行推送\n");
 
 	strcpy(command, "cd ");
 	strcat(command, u.Classroom);
