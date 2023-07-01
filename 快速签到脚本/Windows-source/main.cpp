@@ -16,6 +16,7 @@ int main() {
 	md5sum_push(u, password);
 	printf("签到成功！建议去网站中检查一下，如果失败请反馈\n");
 	printf("按回车退出\n");
+	setbuf(stdin, NULL);
 	getchar();
 	return 0;
 }
