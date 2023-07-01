@@ -41,7 +41,7 @@ void md5sum_push(user u, char* password) {
 	struct tm* format_time;
 	format_time = gmtime(&current_time);
 
-	snprintf(outputfile, 32, "%d-%02d-%d"
+	snprintf(outputfile, 32, "%d-%02d-%02d"
 		, 1900 + format_time->tm_year
 		, 1 + format_time->tm_mon
 		, format_time->tm_mday);
